@@ -101,10 +101,10 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Organization Name</th>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Phone</th>
-                                        <th>Visiblity</th>
+                                        <th>Name one</th>
+                                        <th>Email one</th>
+                                        <th>Phone one</th>
+                                        <th>Visiblity one</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
