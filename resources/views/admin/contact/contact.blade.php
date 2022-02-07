@@ -104,7 +104,7 @@
                                         <th>Name one</th>
                                         <th>Email one</th>
                                         <th>Phone one</th>
-                                        <th>Visiblity one</th>
+                                        <th>Visiblity</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
