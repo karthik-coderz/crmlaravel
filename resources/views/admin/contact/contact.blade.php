@@ -100,7 +100,7 @@
                                 <thead class="thead-inverse">
                                     <tr>
                                         <th>No</th>
-                                        <th>Organization Name12</th>
+                                        <th>Organization Name</th>
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th>Phone</th>

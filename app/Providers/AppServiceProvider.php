@@ -18,6 +18,8 @@ class AppServiceProvider extends ServiceProvider
                           'App\Repository\ContactRepository' );
         $this->app->bind( 'App\Repository\IOrganizationRepository',
                           'App\Repository\OrganizationRepository' );
+        $this->app->bind( 'App\Repository\ISegmentRepository',
+                          'App\Repository\SegmentRepository' );
     }
 
     /**
