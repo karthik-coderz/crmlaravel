@@ -6,6 +6,7 @@ use App\Http\Controllers\TypeaheadController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\DealController;
+use App\Http\Controllers\SegmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,4 +68,16 @@ Route::get('/autocomplete-search', [TypeaheadController::class,'autocompleteSear
 
     #Deal
     Route::get('/deal', [DealController::class,'index']);
+
+    #Organization Policy
+    Route::prefix('segment')->group(function () {
+        Route::get('/' , [SegmentController::class,'showSegments'])->name('segment.list');
+        Route::get('/create', [SegmentController::class,'createSegment'])->name('segment.create');
+        Route::post('/create', [SegmentController::class,'saveSegment']);
+        Route::get('/edit/{id}', [SegmentController::class,'getSegment'])->name('segment.edit');
+        Route::put('/edit/{id}', [SegmentController::class,'saveSegment'])->name('segment.update');
+        Route::get('/delete/{id}', [SegmentController::class,'deleteSegment'])->name('segment.delete');
+    });
+    #endOrganization
+
 // });
