@@ -97,6 +97,10 @@ danger-color : #f3545d
   border : 1px solid #d0d2d3;
 }
 
+.avatar-group p {
+  white-space: nowrap;
+}
+
 /*horizontal scroll*/
 .items {
   overflow-x: scroll;

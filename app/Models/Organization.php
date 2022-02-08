@@ -13,10 +13,6 @@ class Organization extends Model implements Auditable
 
     protected $guarded = [];
 
-    // protected $appends = [
-    //     'ContentCount'
-    // ];
-
     public function contacts()
     {
         return $this->hasMany(Contact::class);

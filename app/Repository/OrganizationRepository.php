@@ -15,7 +15,7 @@ class OrganizationRepository implements IOrganizationRepository
 
     public function getAllOrganizations()
     {
-        $organizations      = Organization::paginate(config('global.pagination_records'));
+        $organizations      = Organization::orderBy('id','DESC')->paginate(config('global.pagination_records'));
         $organizationsList  = OrganizationResource::collection($organizations);
         return $organizationsList;
         // $organizations = Organization::where('id', '=', 1)->paginate(3);

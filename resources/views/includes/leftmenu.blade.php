@@ -71,18 +71,6 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a href="{{url('deal')}}">
-                        <i class="fas fa-layer-group"></i>
-                        <p>{{ __('app.dashboard.deals') }}</p></span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#tables">
-                        <i class="fas fa-table"></i>
-                        <p>{{ __('app.dashboard.campaigns') }}</p></span>
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a data-toggle="collapse" href="#maps">
                         <i class="far fa-envelope"></i>
                         <p>{{ __('app.dashboard.marketing') }}</p>
@@ -91,7 +79,7 @@
                     <div class="collapse" id="maps">
                         <ul class="nav nav-collapse">
                             <li>
-                                <a href="#">
+                                <a href="{{url('segment')}}">
                                     <span class="sub-item">{{ __('app.dashboard.segments') }}</span>
                                 </a>
                             </li>
@@ -108,6 +96,19 @@
                         </ul>
                     </div>
                 </li>
+                <li class="nav-item">
+                    <a href="{{url('deal')}}">
+                        <i class="fas fa-layer-group"></i>
+                        <p>{{ __('app.dashboard.deals') }}</p></span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#tables">
+                        <i class="fas fa-table"></i>
+                        <p>{{ __('app.dashboard.campaigns') }}</p></span>
+                    </a>
+                </li>
+                
                 <!-- <li class="nav-item">
                     <a data-toggle="collapse" href="#charts">
                         <i class="far fa-chart-bar"></i>

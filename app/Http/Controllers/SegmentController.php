@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Segment;
+use App\Models\Contact;
 use App\Http\Controllers\Controller;
 use App\Repository\ISegmentRepository;
 use Illuminate\Http\Request;
@@ -23,10 +24,8 @@ class SegmentController extends Controller
     
     public function showSegments()
     {
-        // $segments = $this->segment->getAllSegments();
-        // return View::make('admin.segment.segment', compact('segments'));
-        return 'hi';
-        // return response()->json($segments, '200');
+        $segments = $this->segment->getAllSegments();
+        return View::make('admin.marketing.segment.segment', compact('segments'));
     }
     
     /**
@@ -37,7 +36,8 @@ class SegmentController extends Controller
 
     public function createSegment()
     {
-        return View::make('admin.segment.form');
+        $contacts = Contact::paginate(config('global.pagination_records'));
+        return View::make('admin.marketing.segment.form', compact('contacts'));
     }
 
     /**
@@ -68,14 +68,13 @@ class SegmentController extends Controller
         if( ! is_null( $id ) ) 
         {
             $this->segment->createOrUpdate($id, $collection);
-            $message =  __('app.segments.person.update-success');
+            $message =  __('app.segment.update-success');
         }
         else
         {
             $data = $this->segment->createOrUpdate($id = null, $collection);
-            $message =  __('app.segments.person.create-success');
+            $message =  __('app.segment.create-success');
         }
-// die;
         return redirect()->route('segment.list')->with('success',$message);
     }
 

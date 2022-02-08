@@ -4,7 +4,6 @@ namespace App\Repository;
 
 use App\Models\Contact;
 use App\Repository\IContactRepository;
-// use Illuminate\Support\Facades\Hash;
 use App\Http\Resources\ContactResource;
 use App\Traits\ImageTrait;
 
@@ -16,7 +15,7 @@ class ContactRepository implements IContactRepository
 
     public function getAllContacts()
     {
-        $contacts = Contact::paginate(config('global.pagination_records'));
+        $contacts = Contact::orderBy('id','DESC')->paginate(config('global.pagination_records'));
         $contactsResources = ContactResource::collection($contacts);
         return $contactsResources;
         // return response([ 'projects' => ProjectResource::collection($projects), 'message' => 'Retrieved successfully'], 200);

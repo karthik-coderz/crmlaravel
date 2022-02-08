@@ -32,7 +32,9 @@ use App\Http\Controllers\SegmentController;
 //     Route::post('/login', 'CommonController@login');
 // });
 
-
+// Route::get('/token', function () {
+//     return csrf_token(); 
+// });
 Route::get('/', [AuthController::class, 'index'])->name('login');
 Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
 Route::get('registration', [AuthController::class, 'registration'])->name('register');
@@ -66,9 +68,6 @@ Route::get('/autocomplete-search', [TypeaheadController::class,'autocompleteSear
     });
     #endOrganization
 
-    #Deal
-    Route::get('/deal', [DealController::class,'index']);
-
     #Organization Policy
     Route::prefix('segment')->group(function () {
         Route::get('/' , [SegmentController::class,'showSegments'])->name('segment.list');
@@ -79,5 +78,8 @@ Route::get('/autocomplete-search', [TypeaheadController::class,'autocompleteSear
         Route::get('/delete/{id}', [SegmentController::class,'deleteSegment'])->name('segment.delete');
     });
     #endOrganization
-
+    
+    #Deal
+    Route::get('/deal', [DealController::class,'index']);
+    
 // });

@@ -4,7 +4,6 @@ namespace App\Repository;
 
 use App\Models\Segment;
 use App\Repository\ISegmentRepository;
-// use Illuminate\Support\Facades\Hash;
 use App\Http\Resources\SegmentResource;
 use App\Traits\ImageTrait;
 
@@ -16,10 +15,9 @@ class SegmentRepository implements ISegmentRepository
 
     public function getAllSegments()
     {
-        $segments = Segment::paginate(config('global.pagination_records'));
+        $segments = Segment::orderBy('id','DESC')->paginate(config('global.pagination_records'));
         $segmentsResources = SegmentResource::collection($segments);
         return $segmentsResources;
-        // return response([ 'projects' => ProjectResource::collection($projects), 'message' => 'Retrieved successfully'], 200);
     }
 
     public function getSegmentById($id)
@@ -29,10 +27,6 @@ class SegmentRepository implements ISegmentRepository
 
     public function createOrUpdate( $id = null, $collection = [] )
     {   
-        // echo "<PRE>";
-        // print_r($collection);
-        // die;
-
         if(is_null($id)) {
 
             $segment = new Segment;
@@ -40,7 +34,12 @@ class SegmentRepository implements ISegmentRepository
             $segment->description       = $collection['description'];
             $segment->created_by        = auth()->id();
             
-            return $segment->save();
+            $result = $segment->save();
+            if ($result) {
+                $segment->contacts()->attach($collection['contact_id']);
+            }
+
+            return $result;
         }
         
         $segment                    = Segment::find($id);
